@@ -1,0 +1,50 @@
+@import "header.scss";
+@import "users/signup.scss";
+@import "users/login.scss";
+@import "books/create.scss";
+
+@import "partials/mixins";
+@import "partials/vars";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  line-height: 1.5;
+  background-color: $body_background_color;
+}
+// main {
+//   // padding: 1rem 1rem;
+// }
+
+input-error {
+  display: none;
+}
+
+input-error[value] {
+  @include input_error();
+}
+
+@include screen("small") {
+  html {
+    font-size: 10px;
+  }
+}
+
+@include screen("tablet") {
+  html {
+    font-size: 12px;
+  }
+}
+
+@include screen("medium") {
+  html {
+    font-size: 14px;
+  }
+}

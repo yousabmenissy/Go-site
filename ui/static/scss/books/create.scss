@@ -1,0 +1,56 @@
+@import "../partials/mixins";
+#book-create {
+  max-width: 50rem;
+  margin: auto;
+  margin-top: 2rem;
+
+  #book-create-form {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.5rem 3rem;
+    display: grid;
+    column-gap: 2rem;
+    row-gap: 0.5rem;
+
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0px 2px 10px #ccddff;
+    @include screen("small") {
+      grid-template-columns: 1fr;
+    }
+    @include screen("tablet") {
+      grid-template-columns: 1fr;
+    }
+
+    label {
+      @include input_label();
+    }
+
+    input,
+    textarea {
+      @include input_field();
+    }
+
+    input[type="date"] {
+      padding: 0.4rem 0.4rem;
+    }
+    div:has(textarea) {
+      grid-column: 1 / -1;
+    }
+    div:first-child {
+      width: 100%;
+      grid-column: 1 / -1;
+    }
+
+    textarea {
+      font-size: 12px;
+      max-width: 100%;
+      min-width: 100%;
+      min-height: 6rem;
+    }
+
+    button[type="submit"] {
+      grid-column: 1 / -1;
+      @include submit_btn();
+    }
+  }
+}

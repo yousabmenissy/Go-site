@@ -1,0 +1,31 @@
+{{define "subject"}}Account activation{{end}} {{define "plainBody"}} Hi, Thanks
+for signing up. You need to activate your account before you can login to site.
+you can do that from this link:
+http://localhost.com/users/{{.userID}}/activated/{{.activationToken}} Please
+note that this is a one-time link and it will expire in 12 hours.{{end}}
+{{define "htmlBody"}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <p>Hi,</p>
+    <p>Thanks for signing up!</p>
+    <p>
+      You need to activate your account before you can login to site. you can do
+      that from this link:
+      <a
+        href="http://localhost:8080/users/{{.userID}}/activated/{{.activationToken}}"
+      >
+        http://localhost:8080/users/{{.userID}}/activated/{{.activationToken}}
+      </a>
+    </p>
+    <p>
+      Please note that this is a one-time link and it will expire in 12 hours.
+    </p>
+    <p>Thank you</p>
+  </body>
+</html>
+{{end}}

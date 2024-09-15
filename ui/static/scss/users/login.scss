@@ -1,0 +1,64 @@
+@import "../partials/mixins";
+#login {
+  margin: auto;
+  margin-top: 2rem;
+  display: block;
+  max-width: 30rem;
+  @include screen("small") {
+    max-width: none;
+    margin: 0;
+  }
+
+  #login-form {
+    padding: 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0px 2px 10px #ccddff;
+
+    @include screen("small") {
+      border-radius: 0;
+      background-color: inherit;
+      box-shadow: none;
+    }
+
+    h2 {
+      margin-top: 1rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+    input {
+      @include input_field();
+      @include screen("small") {
+        @include input_field($background: inherit);
+      }
+    }
+
+    label {
+      @include input_label();
+    }
+
+    div:not(:last-child) {
+      margin-bottom: 0.8rem;
+    }
+
+    pre {
+      margin-top: 0.5rem;
+      text-align: center;
+      font-weight: 500;
+      font-size: small;
+
+      a {
+        color: $links_color;
+        text-decoration-line: none;
+      }
+    }
+  }
+
+  button[type="submit"] {
+    @include submit_btn();
+  }
+}

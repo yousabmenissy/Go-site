@@ -1,0 +1,28 @@
+{{define "nav"}}
+<ul>
+  <div>
+    <h1><a href="/">Site</a></h1>
+  </div>
+
+  <div>
+    <li><a href="/">Home</a></li>
+    {{if .IsAuthenticated}}
+    <li><a href="/books/create">New book</a></li>
+    {{end}}
+  </div>
+
+  <div>
+    {{if .IsAuthenticated}}
+    <li>
+      <form action="/users/logout" method="post">
+        <input type="hidden" name="csrf_token" value="{{.CSRFToken}}" />
+        <button type="submit" id="logout-btn">logout</button>
+      </form>
+    </li>
+    {{else}}
+    <li><a href="/users/signup">Register</a></li>
+    <li><a href="/users/login">Log in</a></li>
+    {{end}}
+  </div>
+</ul>
+{{end}}

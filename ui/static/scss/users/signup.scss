@@ -1,0 +1,53 @@
+@import "../partials/mixins";
+
+#signup {
+  margin: auto;
+  display: block;
+  max-width: 30rem;
+  margin-top: 2rem;
+
+  #signup-form {
+    padding: 2rem 4rem;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0px 2px 10px #ccddff;
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    label {
+      @include input_label();
+    }
+
+    input {
+      @include input_field($shadow-high: 0 0 6px);
+    }
+
+    div {
+      margin: 4px 0;
+    }
+
+    pre {
+      margin-top: 0.5rem;
+      text-align: center;
+      font-weight: 500;
+      font-size: small;
+
+      a {
+        color: $links_color;
+        text-decoration-line: none;
+      }
+    }
+  }
+
+  button {
+    @include submit_btn();
+  }
+}

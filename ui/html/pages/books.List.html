@@ -1,0 +1,20 @@
+{{define "title"}}Books{{end}} {{define "main"}} {{if .Books}}
+<table>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Publisher</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{range .Books}}
+    <th>{{.ID}}</th>
+    <td><a href="/books/{{.ID}}">{{.Title}}</a></td>
+    <td>{{.Author}}</td>
+    <td>{{.Publisher}}</td>
+    {{end}}
+  </tbody>
+</table>
+{{end}} {{end}}

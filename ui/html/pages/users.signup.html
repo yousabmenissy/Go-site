@@ -1,0 +1,49 @@
+{{define "title" }}Signup{{end}} {{define "main"}}
+<section id="signup">
+  <form novalidate>
+    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}" />
+
+    <div id="signup-form">
+      <h2>Sign up to Site</h2>
+      <div>
+        <label for="name">*Name:</label>
+        <input type="text" name="name" id="name" required minlength="2" />
+        <input-error for="name" />
+      </div>
+
+      <div>
+        <label for="email">*Email:</label>
+        <input type="email" name="email" id="email" required />
+        <input-error for="email" />
+      </div>
+
+      <div>
+        <label for="password">*Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          required
+          minlength="8"
+        />
+        <input-error for="password" />
+      </div>
+      <div>
+        <label for="password-confirm">*Confirm Password:</label>
+        <input
+          type="password"
+          name="password-confirm"
+          id="password-confirm"
+          required
+          minlength="8"
+        />
+        <input-error for="password-confirm" />
+      </div>
+      <pre>Already have an account? <a href="/users/login">login</a></pre>
+      <button type="submit" url="/users/signup" disabled>Signup</button>
+    </div>
+  </form>
+
+  <input-error for="all"></input-error>
+</section>
+{{end}}

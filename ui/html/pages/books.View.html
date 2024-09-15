@@ -1,0 +1,16 @@
+{{define "title"}}Book #{{.Book.ID}} {{end}} {{define "main"}}
+<ul>
+  <li>{{.Book.Title}}</li>
+  <li>{{.Book.Author}}</li>
+  <li>{{.Book.Release_date}}</li>
+  <li>{{.Book.Publisher}}</li>
+  <li>{{.Book.Country}}</li>
+  <li>{{.Book.Isbn}}</li>
+  <li>{{.Book.Pages}}</li>
+  <li>{{.Book.Language}}</li>
+  <li>{{.Book.Description}}</li>
+  <li>{{.Book.Genres}}</li>
+  <li>{{.Book.CoverImageUrl}}</li>
+  <li>{{.Book.Price}}</li>
+</ul>
+{{end}}

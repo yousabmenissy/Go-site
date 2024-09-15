@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "rollup": "^4.21.1",
+    "rollup-plugin-typescript2": "^0.36.0"
+  },
+  "scripts": {
+    "build": "rollup -c && sass --source-map static/scss/base.scss:static/css/base.css",
+    "sass": "sass --source-map static/scss/base.scss:static/css/base.css -w",
+    "ts": "rollup -c -w"
+  },
+  "type": "module"
+}

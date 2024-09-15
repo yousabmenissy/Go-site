@@ -1,0 +1,31 @@
+{{define "title"}}login{{end}} {{define "main"}}
+<section id="login">
+  <form novalidate>
+    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}" />
+
+    <div id="login-form">
+      <h2>Login</h2>
+      <input-error for="all"></input-error>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required />
+        <input-error for="email" />
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          required
+          minlength="8"
+        />
+        <input-error for="password" />
+      </div>
+      <pre>Don't have an account? <a href="/users/signup">signup</a></pre>
+      <button type="submit" url="/users/login" disabled>login</button>
+    </div>
+  </form>
+</section>
+{{end}}

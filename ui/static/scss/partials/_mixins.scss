@@ -1,0 +1,113 @@
+@import "vars";
+@mixin input_field(
+  $padding: $input_padding,
+  $background: white,
+  $border: $input_border,
+  $border-color: $input_border_color,
+  $border-color-valid: $input_border_color_valid,
+  $border-color-invalid: $input_border_color_invalid,
+  $shadow-low: $input_shadow_low,
+  $shadow-high: $input_shadow_high,
+  $shadow-color-focus: $input_shadow_color_focus,
+  $shadow-color-valid: $input_shadow_color_valid,
+  $shadow-color-invalid: $input_shadow-color-invalid
+) {
+  width: 100%;
+  padding: $padding;
+  background-color: $background;
+  border: $border $border-color;
+  box-shadow: $shadow-low rgba(0, 0, 0, 0.4);
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+
+  &:focus {
+    box-shadow: $shadow-high $shadow-color-focus;
+  }
+
+  &.was-validated:invalid {
+    border: $border $border-color-invalid;
+  }
+
+  &.was-validated:valid {
+    border: $border $border-color-valid;
+  }
+
+  &.was-validated:focus {
+    box-shadow: $shadow-high $shadow-color-valid;
+  }
+
+  &.was-validated:focus:invalid {
+    box-shadow: $shadow-high $shadow-color-invalid;
+  }
+}
+@mixin submit_btn(
+  $background: rgb(61, 180, 242),
+  $border-radius: 6px,
+  $font-size: 1.2rem,
+  $background-hover: rgb(61, 180, 255),
+  $background-disabled: transparent
+) {
+  padding: 0.8rem 2.5rem;
+  margin: auto;
+  margin-top: 1.5rem;
+  color: black;
+  border: transparent;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-size: $font-size;
+  font-weight: 600;
+  text-align: center;
+  background-color: $background;
+  display: inline-block;
+  text-align: center;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $background-hover;
+  }
+
+  &:disabled {
+    background-color: $background-disabled;
+    cursor: default;
+    color: rgba(0, 0, 0, 0.2);
+    border: 1px solid black;
+  }
+}
+
+@mixin input_label($display: block, $size: 1rem, $weight: 600) {
+  display: $display;
+  font-size: $size;
+  font-weight: $weight;
+  margin-bottom: 2px;
+}
+
+@mixin input_error() {
+  font-size: small;
+  color: rgb(192, 57, 43);
+  font-weight: bold;
+  display: block;
+  padding-top: 0.4rem;
+  padding-left: 0.2rem;
+
+  &::before {
+    content: "- ";
+  }
+}
+
+@mixin screen($breakpoint) {
+  @if $breakpoint == "small" {
+    @media screen and (max-width: 499px) {
+      @content;
+    }
+  } @else if $breakpoint == "tablet" {
+    @media screen and (min-width: 500px) and (max-width: 899px) {
+      @content;
+    }
+  } @else if $breakpoint == "medium" {
+    @media screen and (min-width: 900px) and (max-width: 1079px) {
+      @content;
+    }
+  }
+}
